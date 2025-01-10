@@ -78,20 +78,6 @@ namespace Code.Networking
         {
             StartGame(GameMode.Host, roomName);
         }
-
-        public void RegisterRoomController(RoomController newRoomController)
-        {
-            if (_roomController != null) return;
-            
-            _roomController = newRoomController;
-        }
-        
-        public void RegisterPlayerSpawner(PlayerSpawner playerSpawner)
-        {
-            if (_playerSpawner != null) return;
-            
-            _playerSpawner = playerSpawner;
-        }
         
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
         {
@@ -107,6 +93,20 @@ namespace Code.Networking
             if (_playerSpawner == null) return;
             
             _playerSpawner.DespawnPlayer(runner, player);
+        }
+        
+        public void RegisterRoomController(RoomController newRoomController)
+        {
+            if (_roomController != null) return;
+            
+            _roomController = newRoomController;
+        }
+        
+        public void RegisterPlayerSpawner(PlayerSpawner playerSpawner)
+        {
+            if (_playerSpawner != null) return;
+            
+            _playerSpawner = playerSpawner;
         }
 
         #endregion

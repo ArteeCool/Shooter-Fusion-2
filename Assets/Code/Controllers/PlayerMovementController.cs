@@ -6,7 +6,7 @@ namespace Code.Controllers
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMovementController : MonoBehaviour
     {
-        [Header("Moving settings")] 
+        [Header("Moving settings")]
         [SerializeField] private Single _walkSpeed;
         [SerializeField] private Single _runSpeed;
         [SerializeField] private Single _sprintSpeed;
@@ -24,15 +24,17 @@ namespace Code.Controllers
         
         private const Single GlobalGravity = 9.81f;
 
+        private Single _jumpTime; 
+        private Single _gravityAcceleration;
+        private Single _speed;
+        
         private CharacterController _characterController;
 
         private Vector3 _velocity;
 
         private Boolean _isJumping;
         
-        private Single _jumpTime; 
-        private Single _gravityAcceleration;
-        private Single _speed;
+
 
         private void Awake()
         {
